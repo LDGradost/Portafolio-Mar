@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #f7f5f0;
+  --color-forest: #193b35;
+  --color-sage: #a9b9aa;
+  --color-charcoal: #252b2a;
+  --color-warmgrey: #777d79;
+  --color-sand: #e9e4da;
+  --color-ochre: #c49a62;
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html,
+  body {
+    background: #dcd7cc;
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+}
+
+/* Each frame prints as one 1600 x 900 PDF page */
+@page {
+  size: 1600px 900px;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    background: none;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-root {
+    padding: 0 !important;
+    gap: 0 !important;
+    max-width: none !important;
+  }
+  .frame-block {
+    break-after: page;
+    margin: 0 !important;
+  }
+  .frame-wrap {
+    width: 1600px !important;
+    height: 900px !important;
+    aspect-ratio: auto !important;
+    box-shadow: none !important;
+  }
+  .frame-inner {
+    transform: none !important;
+  }
+}
